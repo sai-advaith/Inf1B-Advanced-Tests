@@ -3,7 +3,6 @@ import org.junit.Before;
 import java.util.Objects;
 
 public abstract class BookEntryTest {
-
     protected static final float CMP_DELTA = 0.0005f;
 
     protected static final String TITLE_FIELD_NAME = "title";
@@ -16,13 +15,13 @@ public abstract class BookEntryTest {
     protected static final String ADVANCED_TITLE = "Odes to Common Things";
 
     protected static final String[] DEFAULT_AUTHORS = { "J.K. Rowling" };
-    protected static final String[] ADVANCED_AUTHORS = {"J.K. Rowling", null};
-    protected static final String[] ADVANCED_AUTHORS1 = {"Pablo Neruda-Ferris","Cook-Ken Krabbenhoft","Hello World"};
-    protected static final String[] ADVANCED_AUTHORS2 = {"Hello World","Pablo Neruda-Ferris","Cook-Ken Krabbenhoft"};
+    protected static final String[] ADVANCED_AUTHORS = { "J.K. Rowling", null };
+    protected static final String[] ADVANCED_AUTHORS1 = { "Pablo Neruda-Ferris", "Cook-Ken Krabbenhoft",
+            "Hello World" };
+    protected static final String[] ADVANCED_AUTHORS2 = { "Hello World", "Pablo Neruda-Ferris",
+            "Cook-Ken Krabbenhoft" };
     protected static final float DEFAULT_RATING = 4.2f;
-    protected static final float ADVANCED_RATING1 = (float) (1.0f / 0.0); // Infinity
-    protected static final float ADVANCED_RATING2 = (float) (0.0f/0.0); // NaN
-    protected static final float ADVANCED_RATING3 = 4.38f;
+    protected static final float ADVANCED_RATING = 4.38f;
 
     protected static final String DEFAULT_ISBN = "074754624X";
     protected static final String ADVANCED_ISBN1 = null;
@@ -44,7 +43,8 @@ public abstract class BookEntryTest {
             ISBN_FIELD_NAME, PAGES_FIELD_NAME };
     public static final Object[] BOOK_ENTRY_FIELD_VALUES = { DEFAULT_TITLE, DEFAULT_AUTHORS, DEFAULT_RATING,
             DEFAULT_ISBN, DEFAULT_PAGES };
-    public static final Object[] BOOK_ENTRY_FIELD_VALUES_ADVANCED= {ADVANCED_TITLE,ADVANCED_AUTHORS1,ADVANCED_RATING3,ADVANCED_ISBN2,ADVANCED_PAGES2};
+    public static final Object[] BOOK_ENTRY_FIELD_VALUES_ADVANCED = { ADVANCED_TITLE, ADVANCED_AUTHORS1,
+            ADVANCED_RATING3, ADVANCED_ISBN2, ADVANCED_PAGES2 };
     public static final Class<?>[] BOOK_ENTRY_FIELD_TYPES = { TITLE_FIELD_TYPE, AUTHORS_FIELD_TYPE, RATING_FIELD_TYPE,
             ISBN_FIELD_TYPE, PAGES_FIELD_TYPE };
 
