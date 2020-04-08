@@ -16,12 +16,12 @@ public class SearchCmdAdvancedTest extends SearchCmdTest {
     public void setup() {
         testCommand = new SearchCmd(SINGLE_WORD_TITLE);
 
-        testLibrary1 = new LibraryData();
+        testLibrary = new LibraryData();
         List<BookEntry> bookData = new ArrayList<>();
         bookData.add(new BookEntry(MULTI_WORD_TITLE_A, new String[]{"AuthorA"}, 3.2f, "ISBNA", 500));
         bookData.add(new BookEntry(SINGLE_WORD_TITLE, new String[]{"AuthorB"}, 4.3f, "ISBNB", 400));
         bookData.add(new BookEntry(MULTI_WORD_TITLE_B, new String[]{"AuthorC"}, 1.3f, "ISBNC", 300));
-        FieldTestUtils.setPrivateField(testLibrary1, testLibrary1.getClass(), "books", bookData);
+        FieldTestUtils.setPrivateField(testLibrary, testLibrary.getClass(), "books", bookData);
     }
     @Test(expected = NullPointerException.class)
     public void testParseArgumentNull() { // non null

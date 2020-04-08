@@ -11,6 +11,24 @@ import static org.junit.Assert.assertFalse;
 
 public class BookEntryAdvancedTest extends BookEntryTest {
 
+    protected static final String ADVANCED_TITLE = "Odes to Common Things";
+
+    protected static final String[] ADVANCED_AUTHORS = { "J.K. Rowling", null };
+    protected static final String[] ADVANCED_AUTHORS1 = { "Pablo Neruda-Ferris", "Cook-Ken Krabbenhoft", "Hello World" };
+    protected static final String[] ADVANCED_AUTHORS2 = { "Hello World", "Pablo Neruda-Ferris", "Cook-Ken Krabbenhoft" };
+
+    protected static final float ADVANCED_RATING = 4.38f;
+
+    protected static final String ADVANCED_ISBN1 = null;
+    protected static final String ADVANCED_ISBN2 = "821220802";
+
+    protected static final int ADVANCED_PAGES2 = 152;
+
+    protected static final String ADVANCED_TOSTRING_RESULT = "Odes to Common Things\nby Pablo Neruda-Ferris, Cook-Ken Krabbenhoft, Hello World\nRating: 4.38\nISBN: 821220802\n152 pages";
+
+    public static final Object[] BOOK_ENTRY_FIELD_VALUES_ADVANCED = { ADVANCED_TITLE, ADVANCED_AUTHORS1,
+            ADVANCED_RATING, ADVANCED_ISBN2, ADVANCED_PAGES2 };
+
     // ------------------------- check fields --------------------
     protected BookEntry testBook;
 
@@ -28,11 +46,6 @@ public class BookEntryAdvancedTest extends BookEntryTest {
     @Test(expected = NullPointerException.class)
     public void invalidAuthors() {
         testBook = new BookEntry(DEFAULT_TITLE, ADVANCED_AUTHORS, DEFAULT_RATING, DEFAULT_ISBN, DEFAULT_PAGES);
-    }
-
-    @Test(expected = InputMismatchException.class)
-    public void invalidPages1() {
-        testBook = new BookEntry(DEFAULT_TITLE, DEFAULT_AUTHORS, DEFAULT_RATING, DEFAULT_ISBN, ADVANCED_PAGES1);
     }
 
     @Test(expected = NullPointerException.class)
