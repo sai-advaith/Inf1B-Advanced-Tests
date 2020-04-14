@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchCmdAdvancedTest extends SearchCmdTest {
-
+    protected static final String ADVANCED_WORD_TITLE = "and";
     // ------------------------- parseArguments tests --------------------
     @Override
     protected CommandType getCmdType() {
@@ -36,14 +36,23 @@ public class SearchCmdAdvancedTest extends SearchCmdTest {
         String blankArg = "";
         CommandTestUtils.checkArgumentInput(testCommand, false, blankArg);
 
+        blankArg = "     ";
+        CommandTestUtils.checkArgumentInput(testCommand,false,blankArg);
+
         String argWithSpaces = "invalid search query";
         CommandTestUtils.checkArgumentInput(testCommand, false, argWithSpaces);
+
+
     }
 
     @Test
     public void testParseArgumentsLegalArgument() {
         CommandTestUtils.checkArgumentInput(testCommand, true, SINGLE_WORD_TITLE);
+        String argWithSpaces = "hello     ";
+        CommandTestUtils.checkArgumentInput(testCommand, true, argWithSpaces);
 
+        argWithSpaces = "    hello    ";
+        CommandTestUtils.checkArgumentInput(testCommand, true, argWithSpaces);
         String argWithHyphen = "Hundred-Dollar";
         CommandTestUtils.checkArgumentInput(testCommand, true, argWithHyphen);
     }
@@ -59,12 +68,15 @@ public class SearchCmdAdvancedTest extends SearchCmdTest {
         String expectedConsoleOutput = SINGLE_WORD_TITLE;
         CommandTestUtils.checkExecuteConsoleOutput(testCommand, testLibrary, expectedConsoleOutput);
     }
-
     @Test
     public void testExecuteFindWordMatch() {
         String expectedConsoleOutput = MULTI_WORD_TITLE_A;
         testCommand = new SearchCmd(MULTI_WORD_SEARCH_TERM_SINGLE_HIT);
         CommandTestUtils.checkExecuteConsoleOutput(testCommand, testLibrary, expectedConsoleOutput);
+    }
+    @Test(expected = NullPointerException.class)
+    public void testNullExec() {
+        testCommand = new SearchCmd(null);
     }
 
     @Test
